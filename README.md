@@ -8,8 +8,8 @@
 ##Process:
 * Download virtual_host project directory
 * Place it in your machine
-* Open terminal '''ctr+t''' and change directory to downloaded virtual_host directory
-* Run command: '''python virtual_host.py'''
+* Open terminal ```ctr+t``` and change directory to downloaded virtual_host directory. ```cd virtual_host```
+* Run command: ```python virtual_host.py```
 * Give two questions answer:
     * Give a directory, where you actually create your project.
     * Give domain name that you want for browse
