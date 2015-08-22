@@ -16,14 +16,15 @@ def newline():
     print("")
 
 
-def creat_host(domain, project_dir):
+def create_host(domain, project_dir):
+    project_path = project_dir+"/"+domain
     msg(" Creating the Directory Structure ")
-    os.system("sudo mkdir -p "+project_dir+"/"+domain)
+    os.system("sudo mkdir -p "+project_path)
 
     newline()
 
     msg(" Granting Proper Permissions ")
-    os.system("sudo chown -R $USER:$USER "+project_dir+"/"+domain)
+    os.system("sudo chown -R $USER:$USER "+project_path)
 
     newline()
 
@@ -32,16 +33,18 @@ def creat_host(domain, project_dir):
 
     newline()
 
-    msg(" Adding A Demo Page ")
-    file_object = open(project_dir+"/"+domain+"/index.html", "w")
-    file_object.write("<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Virtual Hosts Created Successfully!</title><style>html{background-color: #508bc9;color: #fff;font-family: sans-serif, arial;}.container{width: 80%;margin: auto auto;}.inl{text-align: center;}.inl img{border-radius: 10px;}a{color: #f2d8ab;}</style></head><body><div class='container'><h1>Virtual Hosts Created Successfully!</h1><p><b>Apache Virtual Hosts Generator</b> has successfully created a virtual host in your server.<br>We can code it better! Join at <a href='https://github.com/rakibtg/Apache-Virtual-Hosts-Creator' target='_blank'>GitHub</a><br>Created by <a href='https://www.twitter.com/rakibtg' target='_blank'>Hasan</a></p><div class='divider'><div class='inl'><h1>Let's celebrate!</h1><img src='http://i.imgur.com/vCbBhwy.gif' alt='Scene from Spider Man Movie (C) Spider Man Movie ..'></div></div></div></body></html>")
-    file_object.close()
+    msg(" Adding A demo Welcome Page ")
+    if not os.path.exists(project_path):
+        os.makedirs(project_path)
+
+    if os.path.exists(project_path):
+        os.system('sudo cp '+os.getcwd()+'/index.html '+project_path+'/index.html')
 
     newline()
 
     msg(" Creating Virtual Host Config File ")
     host_file = open("/tmp/"+domain+".conf", "w")
-    host_file.write("<VirtualHost *:80>\nServerAdmin localserver@localhost\nServerName "+domain+"\nServerAlias www."+domain+"\nDocumentRoot "+project_dir+"/"+domain+"\n<Directory '"+project_dir+"/"+domain+"/""'>\n\tAllowOverride All\n\tRequire all granted\n</Directory>\n</VirtualHost>")
+    host_file.write("<VirtualHost *:80>\nServerAdmin localserver@localhost\nServerName "+domain+"\nServerAlias www."+domain+"\nDocumentRoot "+project_path+"\n<Directory '"+project_path+"/""'>\n\tAllowOverride All\n\tRequire all granted\n</Directory>\n</VirtualHost>")
     host_file.close()
     os.system("sudo mv \"/tmp/"+domain+".conf\" \"/etc/apache2/sites-available/\"")
 
@@ -84,13 +87,13 @@ if os.path.exists(project_dir+"/"+domain):
     flag = input()
     host_flag = 1
 
-    if (flag == "no" or flag == ""):
+    if flag == "no" or flag == "":
         newline()
         msg(" This virtual host is already exist. \n Please choose a different name and try again. ")
         newline()
     if flag == "yes":
         newline()
         msg(" Existing host will be overwritten ... ")
-        creat_host(domain, project_dir)
+        create_host(domain, project_dir)
 else:
-    creat_host(domain, project_dir)
+    create_host(domain, project_dir)
