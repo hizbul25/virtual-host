@@ -76,7 +76,7 @@ newline()
 print("\n Welcome to Apache Virtual Hosts Generator\n - This script will setup a Apache Virtual Hosts for you\n - All you have to do, answer 2 questions\n - Make sure you have Apache configured\n ")
 
 newline()
-msg(' What would be the project directory? eg. /var/www/html or /home/hostname/some_directory/projects')
+msg(' What would be the project directory? \n example: /var/www/html or /home/hostname/some_directory/projects')
 project_dir = input()
 newline()
 msg(" What would be the domain name? ")
