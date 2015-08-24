@@ -15,3 +15,5 @@
     * Give domain name that you want for browse
 * Everything complete, visit your project directory and remove html file and place your codebase.
 * Browse your project following your domain name.
+
+##nginx will come soon
