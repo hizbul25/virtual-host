@@ -17,7 +17,8 @@ def newline():
 
 
 def create_host(domain, project_dir):
-    project_path = project_dir+"/"+domain
+    project_name = domain.split('.')
+    project_path = project_dir+"/"+project_name[0]
     msg(" Creating the Directory Structure ")
     os.system("sudo mkdir -p "+project_path)
 
