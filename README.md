@@ -2,7 +2,7 @@
  Creating virtual host is a time consuming task for starting new project along with complexity. This tools make this process easy. Within a minute you can create your virtual host wihtout any hassle.
 
 ##Requirements
-* ptyhon >= 3.x.x
+* python >= 3.x.x
 * Ubuntu 14.04
 
 ##Process:
