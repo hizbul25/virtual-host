@@ -64,7 +64,7 @@ def create_host(domain, project_dir):
 
     msg(" Setting Up Local Host File ")
     if host_flag == 0:
-        os.system("sudo sed -i -e '1i127.0.1.1   "+domain+"\' \"/etc/hosts\"")
+        os.system("sudo sed -i -e '1i127.0.0.1   "+domain+"\' \"/etc/hosts\"")
     else:
         print(" Skipped! ")
 
