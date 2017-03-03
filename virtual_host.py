@@ -2,7 +2,7 @@
 #@email hizbul.ku@gmail.com
 
 #!/usr/bin/env python
-import os, platform
+import os
 
 # Clear the terminal.
 os.system("clear")
@@ -78,26 +78,16 @@ print("\n Welcome to Apache Virtual Hosts Generator\n - This script will setup a
 
 newline()
 msg(' What would be the project directory? \n example: /var/www/html or /home/hostname/some_directory/projects')
-python_version = platform.python_version()
-if python_version < 3.0:
-    project_dir = raw_input()
-else:
-    project_dir = input()
+project_dir = input()
 
 newline()
 msg(" What would be the domain name? ")
-if python_version < 3.0:
-    domain = raw_input()
-else:
-    domain = input()
+domain = input()
 
 
 if os.path.exists(project_dir+"/"+domain):
     msg(" IMPORTANT: It seems that you have already configured a virtual hosts with the same domain name \n If you continue then all your data of http://"+domain+"/ will be overwritten and can not be undo \n Continue? (yes/no) ")
-    if python_version < 3.0:
-        flag = raw_input()
-    else:
-        flag = input()
+    flag = input()
 
     host_flag = 1
 
