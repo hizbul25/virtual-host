@@ -1,11 +1,11 @@
-##Apache Virtual Host
+## Apache Virtual Host
  Creating virtual host is a time consuming task for starting new project along with complexity. This tools make this process easy. Within a minute you can create your virtual host without any hassle.
 
-##Requirements
+## Requirements
 * Python 3.*
 * Linux OS
 
-##Process:
+## Process:
 * Download virtual_host project directory
 * Place it in your machine
 * Open terminal ```ctr+t``` and change directory to downloaded virtual_host directory. ```cd virtual_host```
